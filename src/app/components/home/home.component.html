@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container flex justify-between mx-auto mt-10">
+  <div>
+    <h4 class="text-3xl font-bold">User's List</h4>
+  </div>
+  <div >
+    <a href="#" class="btn-primary">
+      <fa-icon [icon]="faUserPlus" class="me-1"></fa-icon>
+      Add User
+    </a>
+  </div>
+</div>
+
+<div class="container mx-auto flex justify-center mt-10">
+  <table class="table border-separate text-center w-full">
+    <thead>
+      <tr>
+        <th class="p-3 w-3/12 text-start">Name</th>
+        <th class="p-3 w-3/12 text-start">Email</th>
+        <th class="p-3 w-1/12">Role</th>
+        <th class="p-3 w-1/12">Salary</th>
+        <th class="p-3 w-1/12">Active?</th>
+        <th class="p-3 w-3/12"></th>
+      </tr>
+    </thead>
+    <tbody class="">
+      @if (users.length > 0) {
+        @for (user of users; track user.id)
+        {
+          <tr id="user_{{user.id}}">
+            <td class="p-3 text-start">{{ user.name }}</td>
+            <td class="p-3 text-start">{{ user.email }}</td>
+            <td class="p-3">{{ user.role }}</td>
+            <td class="p-3">{{ user.salary }}</td>
+            <td class="p-3"> {{ user.active ? "Yes" : "No" }}</td>
+            <td class="p-3">
+              <a href="#" class="btn-secondary"><fa-icon [icon]="faUserPen" class="me-1"></fa-icon> Edit</a>
+              <a href="#" class="btn-secondary"><fa-icon [icon]="faUser" class="me-1"></fa-icon> Details</a>
+              <a href="#" class="btn-danger"><fa-icon [icon]="faUserXmark" class="me-1"></fa-icon> Delete</a>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>
