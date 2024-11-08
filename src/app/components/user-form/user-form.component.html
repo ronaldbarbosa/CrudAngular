@@ -1,0 +1,23 @@
+<div class="container mx-auto mt-10">
+  <form [formGroup]="userForm" (ngSubmit)="submit()" #formDir="ngForm" >
+    <div class="grid lg:grid-cols-2 lg:gap-12">
+      <app-input [name]="'name'" [label]="'Name'" formControlName="name"></app-input>
+      <app-input [name]="'cpf'" [label]="'CPF'" formControlName="cpf"></app-input>
+    </div>
+    <div class="grid lg:grid-cols-2 lg:gap-12">
+      <app-input [name]="'salary'" [label]="'Salary'" [type]="'number'" formControlName="salary"></app-input>
+      <app-input [name]="'role'" [label]="'Role'" formControlName="role"></app-input>
+    </div>
+    <div class="grid lg:grid-cols-3 lg:gap-12">
+      <app-input [name]="'email'" [label]="'Email'" [type]="'email'" formControlName="email"></app-input>
+      <app-input [name]="'password'" [label]="'Password'" [type]="'password'" formControlName="password"></app-input>
+      <app-input [name]="'confirm-password'" [label]="'Confirm Password'" [type]="'password'" formControlName="confirmPassword"></app-input>
+    </div>
+    <div class="mt-8 text-end">
+      <button type="submit" class="btn-primary">
+        <fa-icon [icon]="faUserPlus" class="me-1"></fa-icon>
+        Create User
+      </button>
+    </div>
+  </form>
+</div>

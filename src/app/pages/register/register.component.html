@@ -1,0 +1,5 @@
+<app-header></app-header>
+
+<app-page-info [title]="title" [returnUrl]="returnUrl"></app-page-info>
+
+<app-user-form (userEventEmitter)="createUser($event)"></app-user-form>

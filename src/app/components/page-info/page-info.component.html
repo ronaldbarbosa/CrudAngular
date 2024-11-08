@@ -1,0 +1,18 @@
+<div class="container flex justify-between mx-auto mt-10">
+  <div>
+    <h4 class="text-3xl font-bold">{{ title }}</h4>
+  </div>
+  <div>
+    @if (returnUrl !== '') {
+      <a [routerLink]="[returnUrl]" class="btn-primary">
+        <fa-icon [icon]="faReply" class="me-1"></fa-icon>
+        Return
+      </a>
+    } @else {
+      <a [routerLink]="['register']" class="btn-primary">
+        <fa-icon [icon]="faUserPlus" class="me-1"></fa-icon>
+        Add User
+      </a>
+    }
+  </div>
+</div>
