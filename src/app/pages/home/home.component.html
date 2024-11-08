@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<app-page-info [title]="title"></app-page-info>
+
+<div class="container mx-auto mt-10">
+  <div class="relative z-0 w-full mb-5 group">
+    <input
+      type="text"
+      name="user_name"
+      id="user_name"
+      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+      required
+      (input)="search($event)"
+    />
+    <label
+      for="user_name"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+      Find user...
+    </label>
+  </div>
+</div>
+
+<div class="container mx-auto flex justify-center mt-10">
+  <table class="table border-separate text-center w-full">
+    <thead>
+      <tr>
+        <th class="p-3 w-3/12 text-start">Name</th>
+        <th class="p-3 w-3/12 text-start">Email</th>
+        <th class="p-3 w-1/12">Role</th>
+        <th class="p-3 w-1/12">Salary</th>
+        <th class="p-3 w-1/12">Active?</th>
+        <th class="p-3 w-3/12"></th>
+      </tr>
+    </thead>
+    <tbody class="">
+      @if (filteredUsers.length > 0) {
+        @for (user of filteredUsers; track user.id)
+        {
+          <tr id="user_{{user.id}}">
+            <td class="p-3 text-start">{{ user.name }}</td>
+            <td class="p-3 text-start">{{ user.email }}</td>
+            <td class="p-3">{{ user.role }}</td>
+            <td class="p-3">{{ user.salary }}</td>
+            <td class="p-3"> {{ user.active ? "Yes" : "No" }}</td>
+            <td class="p-3">
+              <a href="#" class="btn-secondary"><fa-icon [icon]="faUserPen" class="me-1"></fa-icon> Edit</a>
+              <a href="#" class="btn-secondary"><fa-icon [icon]="faUser" class="me-1"></fa-icon> Details</a>
+              <a href="#" (click)=deleteUser(user.id!) class="btn-danger"><fa-icon [icon]="faUserXmark" class="me-1"></fa-icon> Delete</a>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>
