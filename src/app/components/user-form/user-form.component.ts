@@ -3,7 +3,7 @@ import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import {faUserPlus} from '@fortawesome/free-solid-svg-icons';
 import {RouterLink, RouterModule} from '@angular/router';
 import {InputComponent} from '../forms/input/input.component';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {User} from '../../models/User';
 
 @Component({
@@ -11,7 +11,6 @@ import {User} from '../../models/User';
   standalone: true,
   imports: [
     FaIconComponent,
-    RouterLink,
     InputComponent,
     RouterModule,
     FormsModule,
@@ -28,14 +27,14 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
       this.userForm = new FormGroup({
         id: new FormControl(0),
-        name: new FormControl(''),
-        cpf: new FormControl(''),
-        email: new FormControl(''),
-        role: new FormControl(''),
+        name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        cpf: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        role: new FormControl('', [Validators.required]),
         password: new FormControl(''),
         confirmPassword: new FormControl(''),
-        salary: new FormControl(0),
-        active: new FormControl(false),
+        salary: new FormControl(0, [Validators.required]),
+        active: new FormControl(false, [Validators.required]),
       });
   }
   protected readonly faUserPlus = faUserPlus;
