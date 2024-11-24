@@ -23,8 +23,12 @@
     </div>
     <div class="grid lg:grid-cols-3 lg:gap-12">
       <app-input [name]="'email'" [label]="'Email'" [type]="'email'" formControlName="email"></app-input>
-      <app-input [name]="'password'" [label]="'Password'" [type]="'password'" formControlName="password"></app-input>
-      <app-input [name]="'confirm-password'" [label]="'Confirm Password'" [type]="'password'" formControlName="confirmPassword"></app-input>
+
+      @if(!user) {
+        <app-input [name]="'password'" [label]="'Password'" [type]="'password'" formControlName="password"></app-input>
+        <app-input [name]="'confirm-password'" [label]="'Confirm Password'" [type]="'password'" formControlName="confirmPassword"></app-input>
+      }
+
     </div>
     <div class="mt-8 text-end">
       <button type="submit" class="btn-primary">

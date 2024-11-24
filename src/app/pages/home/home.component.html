@@ -45,7 +45,7 @@
             <td class="p-3"> {{ user.active ? "Yes" : "No" }}</td>
             <td class="p-3">
               <a [routerLink]="['update/', user.id]" class="btn-secondary"><fa-icon [icon]="faUserPen" class="me-1"></fa-icon> Edit</a>
-              <a [routerLink]="['details', user.id]" class="btn-secondary"><fa-icon [icon]="faUser" class="me-1"></fa-icon> Details</a>
+<!--              <a [routerLink]="['details/', user.id]" class="btn-secondary"><fa-icon [icon]="faUser" class="me-1"></fa-icon> Details</a>-->
               <a href="#" (click)=deleteUser(user.id!) class="btn-danger"><fa-icon [icon]="faUserXmark" class="me-1"></fa-icon> Delete</a>
             </td>
           </tr>

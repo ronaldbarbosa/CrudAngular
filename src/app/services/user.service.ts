@@ -24,6 +24,10 @@ export class UserService {
     return this.httpClient.post<Response<User>>(`${environment.UrlApi}/users`, user);
   }
 
+  UpdateUser(user: User): Observable<Response<User>> {
+    return this.httpClient.put<Response<User>>(`${environment.UrlApi}/users/${user.id}`, user);
+  }
+
   DeleteUser(userId: number) : Observable<Response<User>> {
     return this.httpClient.delete<Response<User>>(`${environment.UrlApi}/users/${userId}`);
   }

@@ -30,7 +30,7 @@ export class DetailsComponent {
       this.id = parseInt(userId, 10);
       this._userService.GetUserById(this.id).subscribe(response => {
         this.user = response.data;
-        this.title = `User's Details - ${this.user?.name}`;
+        this.title = `User's details - ${this.user?.name}`;
       });
     }
   }
